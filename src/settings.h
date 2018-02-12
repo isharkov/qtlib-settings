@@ -2,10 +2,10 @@
 #define SETTINGS_H
 #include <QObject>
 #include <QSettings>
-#include "thermocouple/thermocouple.h"
+#include "settings_headers.h"
 #include "abstractsettings.h"
 
-class Settings: public QObject
+class SETTINGS_COMMON_DLLSPEC Settings: public QObject
 {
     Q_OBJECT
 public:

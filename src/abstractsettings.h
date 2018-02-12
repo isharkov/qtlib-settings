@@ -2,8 +2,9 @@
 #define ABSTRACTSETTINGS_H
 #include <QObject>
 #include <QMap>
+#include "settings_headers.h"
 
-class AbstractSettings {
+class SETTINGS_COMMON_DLLSPEC AbstractSettings {
 public:
     AbstractSettings(){}
     virtual QString getName(void) {
