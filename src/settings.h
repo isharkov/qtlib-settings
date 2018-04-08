@@ -5,11 +5,11 @@
 #include "settings_headers.h"
 #include "abstractsettings.h"
 
-class SETTINGS_COMMON_DLLSPEC Settings: public QObject
+class SETTINGS_COMMON_DLLSPEC Settings
 {
-    Q_OBJECT
+
 public:
-    Settings(QObject *parent = Q_NULLPTR, QString file = "setting.ini");
+    Settings(QString file = "setting.ini", QObject *parent = Q_NULLPTR);
     void saveObject(AbstractSettings *object);
     void restoreObject(AbstractSettings *object);
 

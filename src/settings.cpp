@@ -2,9 +2,9 @@
 #include <QDebug>
 
 
-Settings::Settings(QObject *parent, QString file) : QObject(parent)
+Settings::Settings(QString file, QObject *parent)
 {
-   m_settings = new QSettings(file, QSettings::IniFormat, this);
+   m_settings = new QSettings(file, QSettings::IniFormat);
 }
 
 /**

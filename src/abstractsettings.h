@@ -4,6 +4,7 @@
 #include <QMap>
 #include "settings_headers.h"
 
+
 class SETTINGS_COMMON_DLLSPEC AbstractSettings {
 public:
     AbstractSettings(){}
