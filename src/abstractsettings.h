@@ -8,7 +8,7 @@
 class SETTINGS_COMMON_DLLSPEC AbstractSettings {
 public:
     AbstractSettings(){}
-    virtual QString getName(void) {
+    virtual const QString getName(void) const {
         return QString("General");
     }
     virtual void setSettings(QMap<QString, QVariant> map) = 0;
