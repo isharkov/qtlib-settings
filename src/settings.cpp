@@ -1,6 +1,9 @@
 #include "settings.h"
 #include <QDebug>
 
+namespace LibQt
+{ //* start namespace
+
 /**
  * @brief Constructor
  * @param file filename
@@ -62,3 +65,5 @@ void Settings::restoreObject(AbstractSettings* object) const
     object->setSettings(map);
     return;
 }
+
+} //* end namespace

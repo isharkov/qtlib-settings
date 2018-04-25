@@ -1,6 +1,6 @@
 # libqt-settings
 
-Qt module for saving and restoring object fiellds to file.
+Qt library for easy saving and restoring object fiellds to file.
 
 ## Installation
  1. clone git repository to your project
@@ -16,13 +16,16 @@ Qt module for saving and restoring object fiellds to file.
 
   
 ## Usage
-	Add inherit your class from AbstractSettings, then implements three methods:
-	    virtual const QString getName(void) const;
-		virtual void setSettings(const QMap<QString, QVariant> map);
-		virtual const QMap<QString, QVariant> getSettings(void) const;
+  Add new parent class LibQt::AbstractSettings for your class, then implements three methods:
+    1. virtual const QString getName(void) const;
+    2. virtual void setSettings(const QMap<QString, QVariant> map);
+    3. virtual const QMap<QString, QVariant> getSettings(void) const;
 
-	You can sets default values in class
+  You can sets default values in class.
 
 ## Example
  See example in example folder.
+
+## Requirements
+ Qt5.9 or higher
 

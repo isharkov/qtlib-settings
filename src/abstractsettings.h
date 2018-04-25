@@ -4,14 +4,18 @@
 #include <QMap>
 #include "settings_headers.h"
 
-class SETTINGS_COMMON_DLLSPEC AbstractSettings {
-public:
-    AbstractSettings(){}
-    virtual const QString getName(void) const {
-        return QString("General");
-    }
-    virtual void setSettings(const QMap<QString, QVariant> map) = 0;
-    virtual const QMap<QString, QVariant> getSettings(void) const = 0;
-};
+namespace LibQt
+{
 
+    class SETTINGS_COMMON_DLLSPEC AbstractSettings {
+    public:
+        AbstractSettings(){}
+        virtual const QString getName(void) const {
+            return QString("General");
+        }
+        virtual void setSettings(const QMap<QString, QVariant> map) = 0;
+        virtual const QMap<QString, QVariant> getSettings(void) const = 0;
+    };
+
+}
 #endif // ABSTRACTSETTINGS_H
