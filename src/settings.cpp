@@ -2,14 +2,13 @@
 #include <QDebug>
 
 /**
- * @brief Settings::Settings
- * @param file
- * @param parent
+ * @brief Constructor
+ * @param file filename
+ * @param parent parent Object
  */
 Settings::Settings(QString file, QObject* parent) : QObject(parent)
 {
-    //settings = new QSettings(m_fileName, QSettings::IniFormat, this);
-    m_fileName = file;
+    settings = new QSettings(file, QSettings::IniFormat, this);
 }
 
 /**
@@ -17,16 +16,15 @@ Settings::Settings(QString file, QObject* parent) : QObject(parent)
  */
 Settings::~Settings()
 {
-    //settings->deleteLater();
+    settings->deleteLater();
 }
 
 /**
- * @brief Settings::saveObject
+ * @brief Saved object filelds to storage
  * @param object
  */
-void Settings::saveObject(AbstractSettings* object)
+void Settings::saveObject(AbstractSettings* object) const
 {
-    QSettings settings(m_fileName, QSettings::IniFormat);
     qInfo() << "Settings::saveObject() -> save object " <<  object->getName();
     QString section("");
     if(object->getName() != "General" && object->getName() != "") {
@@ -36,26 +34,29 @@ void Settings::saveObject(AbstractSettings* object)
     QMap<QString, QVariant> map = object->getSettings();
     QMap<QString, QVariant>::iterator i = map.begin();
     while(i != map.end()) {
-        settings.setValue( section + i.key(), i.value().toString());
+        settings->setValue( section + i.key(), i.value().toString());
         i++;
     }
     return;
 }
 
 /**
- * @brief Settings::restoreObject
+ * @brief Restored object filelds from storage
  * @param object
  */
-void Settings::restoreObject(AbstractSettings* object)
+void Settings::restoreObject(AbstractSettings* object) const
 {
-    QSettings settings(m_fileName, QSettings::IniFormat);
     qInfo() << "Settings::restoreObject() -> restore object" << object->getName();
-    QString section = object->getName();
+    QString section("");
+    if(object->getName() != "General" && object->getName() != "") {
+         section = object->getName() + "/";
+    }
+
     QMap<QString, QVariant> map = object->getSettings();
     QMap<QString, QVariant>::iterator i = map.begin();
-    //int d = settings->value("test", QVariant(24).toInt());
+
     while(i != map.end()) {
-        map[i.key()] = settings.value(section + "/" + i.key(), i.value().toString());
+        map[i.key()] = settings->value(section + "/" + i.key(), i.value().toString());
         i++;
     }
     object->setSettings(map);
