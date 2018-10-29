@@ -55,13 +55,15 @@ void Settings::restoreObject(AbstractSettings* object) const
          section = object->getName() + "/";
     }
 
-    QMap<QString, QVariant> map = object->getSettings();
-    QMap<QString, QVariant>::iterator i = map.begin();
+    settings->beginGroup(section);
+    QStringList keys = settings->childKeys();
+    settings->endGroup();
 
-    while(i != map.end()) {
-        map[i.key()] = settings->value(section + "/" + i.key(), i.value().toString());
-        i++;
+    QMap<QString, QVariant> map = object->getSettings();
+    for(QStringList::iterator i = keys.begin(); i < keys.end(); i++){
+        map[*i] = settings->value(section + "/" + *i).toString();
     }
+
     object->setSettings(map);
     return;
 }
