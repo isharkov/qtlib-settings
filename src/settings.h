@@ -31,7 +31,7 @@
 #include "settings_headers.h"
 #include "abstractsettings.h"
 
-namespace LibQt
+namespace QtLib
 {
     class SETTINGS_COMMON_DLLSPEC Settings: public QObject
     {

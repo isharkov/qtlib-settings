@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->closeBtn, SIGNAL(clicked(bool)), this, SLOT(closeHandle()));
-    m_settings = new LibQt::Settings("settings.ini", this);
+    m_settings = new QtLib::Settings("settings.ini", this);
     m_settings->restoreObject(this);
     ui->valueInput->setText(QString().sprintf("%d", m_value));
 }

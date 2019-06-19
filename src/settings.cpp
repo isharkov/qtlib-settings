@@ -1,7 +1,7 @@
 #include "settings.h"
 #include <QDebug>
 
-namespace LibQt
+namespace QtLib
 { //* start namespace
 
 /**

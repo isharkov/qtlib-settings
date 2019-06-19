@@ -9,7 +9,7 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow, private LibQt::AbstractSettings
+class MainWindow : public QMainWindow, private QtLib::AbstractSettings
 {
     Q_OBJECT
 
@@ -29,7 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    LibQt::Settings *m_settings;
+    QtLib::Settings *m_settings;
     int m_value = 55;       // saved value with default value
 };
 

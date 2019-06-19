@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
 SUBDIRS = \
-../src/libqt-settings.pro \
+../src/qtlib-settings.pro \
 application/application.pro \
 

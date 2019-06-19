@@ -27,10 +27,10 @@ TEMPLATE = app
 DEPENDPATH +=  . ../../src
 INCLUDEPATH +=  . ../../src
 CONFIG(debug, debug|release) {
-    LIBS+=  -L../../src/debug -llibqt-settings
+    LIBS+=  -L../../src/debug -lqtlib-settings
 }
 CONFIG(release, debug|release) {
-    LIBS+=  -L../../src/release -llibqt-settings
+    LIBS+=  -L../../src/release -lqtlib-settings
 }
 
 
